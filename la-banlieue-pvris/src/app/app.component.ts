@@ -1,4 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
+import Swiper from 'swiper';
+
+
 
 declare const gsap: any;
 declare const ScrollTrigger: any;
@@ -25,7 +28,28 @@ export class AppComponent implements AfterViewInit {
         this.initAnimations();
         this.setupMenu();
         this.setupScrollLinks();
-      }, 1500);
+      }, 500);
+     setTimeout(() => {
+      new Swiper('.testimonials-swiper', {
+        slidesPerView: 1,
+        spaceBetween: 24,
+        loop: true,
+        autoHeight: true,
+        autoplay: {
+          delay: 4500,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          1024: { slidesPerView: 3 },
+          640: { slidesPerView: 2 },
+          0: { slidesPerView: 1 },
+        }
+      });
+    }, 200);
             // Gestion de l'ouverture de la modale au clic sur un produit
       document.querySelectorAll('.product-card').forEach(card => {
         card.addEventListener('click', () => {
