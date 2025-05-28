@@ -8,7 +8,7 @@
 
 Ce site web est la vitrine digitale officielle de la marque "La Banlieue Pvris", réalisé sous Angular. Il présente la collection 2025, la philosophie de la marque, les avis clients, et permet un contact direct via formulaire.
 
-![Accueil](./la-banlieue-pvris/src/assets/result/contact.png)
+![Accueil](./la-banlieue-pvris/src/assets/result/accueil.png)
 
 ---
 
