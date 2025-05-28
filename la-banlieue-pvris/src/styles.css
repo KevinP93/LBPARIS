@@ -211,18 +211,24 @@ h1, h2, h3 {
 .testimonials-swiper,
 .testimonials-swiper .swiper-wrapper,
 .testimonials-swiper .swiper-slide {
-  height: 400px;   
-  min-height: 400px;
   display: flex;
   align-items: stretch;
 }
-
+.swiper {
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
 .testimonials-swiper .swiper-slide {
-
   display: flex;
-  align-items: stretch;
-  height: 100%;
+  flex-direction: column;
+  height: auto !important;
 }
+.testimonials-swiper,
+.testimonials-swiper .swiper-wrapper {
+  height: auto !important;
+}
+
 
 .testimonials-swiper .bg-gray-900 {
   height: 100%;

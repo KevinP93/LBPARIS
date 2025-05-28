@@ -19,7 +19,7 @@ export class AppComponent implements AfterViewInit {
           loader.style.opacity = '0';
           setTimeout(() => {
             loader.style.display = 'none';
-          }, 1000);
+          }, 500);
         }
 
         this.initAnimations();
