@@ -1,6 +1,11 @@
 import { AfterViewInit, Component } from '@angular/core';
 
 import Swiper from 'swiper';
+import { Autoplay, Pagination } from 'swiper/modules';
+
+
+Swiper.use([Autoplay, Pagination]);
+
 
 
 declare const gsap: any;
@@ -20,7 +25,7 @@ export class AppComponent implements AfterViewInit {
       loader.style.opacity = '0';
       setTimeout(() => {
         loader.style.display = 'none';
-      }, 500);
+      }, 1000);
     }
 
     this.initAnimations();
@@ -29,7 +34,7 @@ export class AppComponent implements AfterViewInit {
 
     // Swiper
     setTimeout(() => {
-      const swiper = new Swiper('.testimonials-swiper', {
+     const swiper = new Swiper('.testimonials-swiper', {
         slidesPerView: 1,
         spaceBetween: 24,
         loop: true,
