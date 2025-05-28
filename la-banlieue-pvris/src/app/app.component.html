@@ -1,0 +1,508 @@
+<div id="telegram-popup" class="fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center hidden">
+  <div class="bg-gray-900 text-white rounded-2xl p-8 max-w-md w-full mx-4 text-center shadow-2xl scale-95 opacity-0 transition-all duration-500 transform">
+    <h3 class="text-2xl font-bold mb-4">🚀 Rejoins notre canal Telegram</h3>
+    <p class="text-gray-400 mb-6">Pour obtenir des réponses plus rapides et ne rien manquer, nous te recommandons de nous suivre sur Telegram.</p>
+    <p class="text-gray-300 mb-6 font-semibold">As-tu déjà rejoint le canal ?</p>
+    <div class="flex justify-center gap-4">
+      <button id="popup-yes" class="bg-accent px-6 py-2 rounded-full hover:bg-opacity-80 transition">Oui</button>
+      <a href="https://t.me/lbpvris" target="_blank" id="popup-no" class="border border-accent px-6 py-2 rounded-full hover:bg-accent hover:text-black transition">Pas encore</a>
+    </div>
+  </div>
+</div>
+
+
+<body>
+  <div class="grid-overlay"></div>
+  
+  <!-- Loader -->
+  <div id="loader" class="fixed inset-0 bg-black z-50 flex flex-col items-center justify-center transition-opacity duration-1000">
+      <div class="relative w-32 h-32 mb-8">
+          <div class="absolute inset-0 border-4 border-transparent border-t-accent border-r-accent rounded-full animate-spin"></div>
+          <div class="absolute inset-4 border-4 border-transparent border-b-accent border-l-accent rounded-full animate-spin-reverse"></div>
+          <div class="absolute inset-8 flex items-center justify-center">
+              <div class="w-16 h-16 bg-accent rounded-full pulse"></div>
+          </div>
+      </div>
+      <h2 class="text-2xl font-bold tracking-widest neon-text">LA BANLIEUE PVRIS</h2>
+  </div>
+
+  <header class="fixed top-0 left-0 w-full z-40 bg-black bg-opacity-70 backdrop-blur-md border-b border-gray-800">
+      <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+          <a href="#" class="flex items-center space-x-3">
+                  <img src="assets/lb_logo_navbar_40px.png" alt="Logo" class="h-10 w-auto" />
+              
+          </a>
+          
+          <nav class="hidden lg:flex space-x-10">
+              <a href="#accueil" class="nav-link text-lg uppercase tracking-wider">Accueil</a>
+              <a href="#collection" class="nav-link text-lg uppercase tracking-wider">Collection</a>
+              <a href="#philosophie" class="nav-link text-lg uppercase tracking-wider">Philosophie</a>
+              <a href="#testimonials" class="nav-link text-lg uppercase tracking-wider">Clients</a>
+              <a href="#contact" class="nav-link text-lg uppercase tracking-wider">Contact</a>
+          </nav>
+          
+          <div class="flex items-center space-x-6">
+            <h1 class="text-2xl font-bold tracking-tighter">LA BANLIEUE <span class="text-accent">PVRIS</span></h1>
+              <button id="menu-toggle" class="lg:hidden text-xl">
+                  <i class="fas fa-bars"></i>
+              </button>
+          </div>
+      </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-90 z-50 flex flex-col items-center justify-center hidden">
+      <button id="close-menu" class="absolute top-8 right-8 text-3xl">
+          <i class="fas fa-times"></i>
+      </button>
+      <nav class="flex flex-col items-center space-y-10">
+          <a href="#accueil" class="text-3xl uppercase tracking-wider hover:text-accent transition-colors">Accueil</a>
+          <a href="#collection" class="text-3xl uppercase tracking-wider hover:text-accent transition-colors">Collection</a>
+          <a href="#philosophie" class="text-3xl uppercase tracking-wider hover:text-accent transition-colors">Philosophie</a>
+          <a href="#testimonials" class="text-3xl uppercase tracking-wider hover:text-accent transition-colors">Clients</a>
+          <a href="#contact" class="text-3xl uppercase tracking-wider hover:text-accent transition-colors">Contact</a>
+      </nav>
+  </div>
+
+  <main>
+      <!-- Hero Section -->
+      <section id="accueil" class="hero min-h-screen flex items-center justify-center relative overflow-hidden">
+          <div class="absolute inset-0 z-0">
+              <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-accent rounded-full filter blur-3xl opacity-20"></div>
+              <div class="absolute bottom-1/3 right-1/4 w-96 h-96 bg-purple-600 rounded-full filter blur-3xl opacity-10"></div>
+          </div>
+          
+          <div class="container mx-auto px-6 z-10 text-center">
+              <h1 class="text-6xl md:text-8xl lg:text-9xl font-bold mb-6 glitch" data-text="LA BANLIEUE PVRIS">LA BANLIEUE PVRIS</h1>
+              <p class="text-xl md:text-2xl max-w-3xl mx-auto mb-12 text-gray-300">
+                  Réinventer l'élégance urbaine avec des pièces uniques qui défient les conventions.
+              </p>
+              <div class="flex flex-col sm:flex-row justify-center gap-6">
+                  <button class="relative overflow-hidden group bg-accent hover:bg-transparent border-2 border-accent text-white px-10 py-4 rounded-full font-bold transition-all duration-500">
+                      <span class="relative z-10">Découvrir</span>
+                      <span class="absolute inset-0 bg-black transform -translate-y-full group-hover:translate-y-0 transition-transform duration-500"></span>
+                  </button>
+                  <button class="relative overflow-hidden group bg-transparent hover:bg-accent border-2 border-accent text-white px-10 py-4 rounded-full font-bold transition-all duration-500">
+                      <span class="relative z-10">Nouveautés</span>
+                      <span class="absolute inset-0 bg-accent transform translate-y-full group-hover:translate-y-0 transition-transform duration-500"></span>
+                  </button>
+              </div>
+          </div>
+          
+          <div class="scroll-indicator"></div>
+          
+          <div class="absolute bottom-10 left-10 hidden lg:block floating">
+              <div class="text-sm uppercase tracking-widest rotate-90 origin-left w-max px-2">LB</div>
+          </div>
+          
+          <div class="absolute bottom-10 right-10 hidden lg:block floating" style="animation-delay: 1s;">
+              <div class="text-sm uppercase tracking-widest -rotate-90 origin-right">PVRIS</div>
+          </div>
+      </section>
+
+      <!-- Collection Section -->
+      <section id="collection" class="py-28 relative overflow-hidden">
+          <div class="absolute top-0 left-0 w-full h-full -z-10">
+              <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-black via-transparent to-black opacity-80"></div>
+              <div class="absolute top-0 left-0 w-full h-full bg-[url('https://images.unsplash.com/photo-1483982258113-b72862e6cff6')] bg-cover bg-center opacity-10"></div>
+          </div>
+          
+          <div class="container mx-auto px-6">
+              <div class="text-center mb-20">
+                  <h2 class="text-5xl md:text-7xl font-bold mb-6 neon-text">COLLECTION 2025</h2>
+                  <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                      Des pièces uniques conçues pour ceux qui osent se démarquer
+                  </p>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                  <!-- Produit 1 -->
+                <div class="product-card group">
+                    <div class="relative overflow-hidden h-96">
+                        <div class="product-image absolute inset-0 bg-[url('assets/LB_WHITE_TSHIRT.png')] bg-cover bg-center"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <span class="inline-block px-3 py-1 bg-accent text-white text-sm font-bold mb-3">NOUVEAU</span>
+                        <h3 class="text-2xl font-bold mb-2">T-shirt LB</h3>
+                        <p class="text-gray-400 mb-4">T-shirt d'entraînement léger à séchage rapide et logo réfléchissant, idéal pour la course et le sport.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold">25€</span>
+                            <button class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-accent transition-colors">
+                            <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                    <!-- Produit 2 -->
+                <div class="product-card group">
+                    <div class="relative overflow-hidden h-96">
+                        <div class="product-image absolute inset-0 bg-[url('assets/LB_SHORT_AVANT.png')] bg-cover bg-center"></div>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-0 left-0 p-6 w-full">
+                        <span class="inline-block px-3 py-1 bg-accent text-white text-sm font-bold mb-3">NOUVEAU</span>
+                        <h3 class="text-2xl font-bold mb-2">Short LB</h3>
+                        <p class="text-gray-400 mb-4">Short de course noir en polyester et spandex, coupe ergonomique avec détails réfléchissants pour allier confort et sécurité.</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold">20€</span>
+                            <button class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-accent transition-colors">
+                            <i class="fas fa-shopping-cart"></i>
+                            </button>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                  
+                  <!-- Produit 3 -->
+                  <div class="product-card group">
+                      <div class="relative overflow-hidden h-96">
+                          <div class="product-image absolute inset-0 bg-[url('assets/LB_SURVET.png')] bg-cover bg-center"></div>
+                          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                          <div class="absolute bottom-0 left-0 p-6 w-full">
+                              <span class="inline-block px-3 py-1 bg-accent text-white text-sm font-bold mb-3">BESTSELLER</span>
+                              <h3 class="text-2xl font-bold mb-2">Enesemble LB</h3>
+                              <p class="text-gray-400 mb-4">Léger, confortable et pensé pour la performance au quotidien.</p>
+                              <div class="flex justify-between items-center">
+                                  <span class="text-2xl font-bold">65€</span>
+                                  <button class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-accent transition-colors">
+                                      <i class="fas fa-shopping-cart"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <!-- Produit 4 -->
+                  <div class="product-card group">
+                      <div class="relative overflow-hidden h-96">
+                          <div class="product-image absolute inset-0 bg-[url('assets/LB_VESTE.png')] bg-cover bg-center"></div>
+                          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                          <div class="absolute bottom-0 left-0 p-6 w-full">
+                              <span class="inline-block px-3 py-1 bg-accent text-white text-sm font-bold mb-3">LIMITED</span>
+                              <h3 class="text-2xl font-bold mb-2">Coupe-vent LB</h3>
+                              <p class="text-gray-400 mb-4">Coupe-vent monochrome imperméable, idéal pour la randonnée. Léger, résistant et conçu pour affronter les intempéries avec style.</p>
+                              <div class="flex justify-between items-center">
+                                  <span class="text-2xl font-bold">55€</span>
+                                  <button class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center group-hover:bg-accent transition-colors">
+                                      <i class="fas fa-shopping-cart"></i>
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+              <!-- BOUTON POUR VOIR LA COLLECTION NON ACTIF POUR LE MOMENT 
+              <div class="text-center mt-20">
+                  <button class="relative overflow-hidden group border-2 border-accent text-white px-12 py-4 rounded-full font-bold text-lg">
+                      <span class="relative z-10">VOIR TOUTE LA COLLECTION</span>
+                      <span class="absolute inset-0 bg-accent transform -skew-x-12 -translate-x-full group-hover:translate-x-0 transition-transform duration-500"></span>
+                  </button>
+              </div> -->
+          </div>
+      </section>
+
+      <!-- Philosophie Section -->
+      <section id="philosophie" class="py-28 bg-black relative overflow-hidden">
+          <div class="absolute inset-0 -z-10">
+              <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1483982258113-b72862e6cff6')] bg-cover bg-center opacity-10"></div>
+              <div class="absolute inset-0 bg-gradient-to-r from-black via-transparent to-black"></div>
+          </div>
+          
+          <div class="container mx-auto px-6">
+              <div class="flex flex-col lg:flex-row items-center gap-16">
+                  <div class="lg:w-1/2 relative">
+                      <div class="relative h-96 w-full rounded-2xl overflow-hidden">
+                          <div class="absolute inset-0 bg-[url('assets/EFFEL_TOWER.png')] bg-cover bg-center"></div>
+                          <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-80"></div>
+                          <div class="absolute bottom-0 left-0 p-8">
+                              <h3 class="text-3xl font-bold mb-2">NOTRE PHILOSOPHIE</h3>
+                              <p class="text-gray-400">Défier les conventions, créer l'exception</p>
+                          </div>
+                      </div>
+                  </div>
+                  
+                  <div class="lg:w-1/2">
+                      <h2 class="text-5xl md:text-6xl font-bold mb-8">L'ESPRIT <span class="text-accent">PVRIS</span></h2>
+                      <p class="text-gray-400 text-lg mb-6">
+                          Née dans les rues, élevée par la culture urbaine, La Banlieue Pvris incarne l'audace et l'authenticité.
+                      </p>
+                      <p class="text-gray-400 text-lg mb-8">
+                          Chaque pièce est conçue comme une déclaration, une réponse à la monotonie vestimentaire, un hommage à ceux qui osent être différents.
+                      </p>
+                      
+                      <div class="grid grid-cols-2 gap-6">
+                          <div class="bg-gray-900 p-6 rounded-xl border-l-4 border-accent">
+                              <h4 class="text-xl font-bold mb-3">MATIÈRES PREMIUM</h4>
+                              <p class="text-gray-400">Sélection rigoureuse des meilleurs textiles pour le sport.</p>
+                          </div>
+                          <div class="bg-gray-900 p-6 rounded-xl border-l-4 border-accent">
+                              <h4 class="text-xl font-bold mb-3">PRODUCTION ETHIQUE</h4>
+                              <p class="text-gray-400">Fabriqué le respect des artisans.</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+        <!-- Témoignages Section -->
+        <section id="testimonials" class="py-28 relative overflow-hidden">
+        <div class="absolute inset-0 -z-10">
+            <div class="absolute inset-0 bg-gradient-to-br from-black via-purple-900/20 to-black"></div>
+        </div>
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-20">
+            <h2 class="text-5xl md:text-7xl font-bold mb-6">ILS NOUS FONT <span class="text-accent">CONFIANCE</span></h2>
+            <p class="text-xl text-gray-400 max-w-3xl mx-auto">
+                Découvrez ce que nos clients pensent de nos créations
+            </p>
+            </div>
+            <!-- Swiper -->
+            <div class="swiper testimonials-swiper">
+            <div class="swiper-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="swiper-slide flex justify-center items-stretch w-full">
+                    <div class="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-accent transition-colors w-full h-full flex flex-col justify-between">
+                    <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                        <img src="assets/LB_SARA.png" alt="Sarah" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Sara</h4>
+                    </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                    "La veste Coupe-vent est vraiment incroyable. Elle est non seulement super confortable à porter, mais aussi totalement imperméable.
+                    Parfaite pour les journées pluvieuses. Depuis que je la mets, j’ai reçu énormément de compliments. Franchement, elle allie style et praticité à la perfection."
+                    </p>
+                    <div class="flex space-x-1 text-yellow-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Slide 2 -->
+                 <div class="swiper-slide flex justify-center items-stretch w-full">
+                    <div class="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-accent transition-colors w-full h-full flex flex-col justify-between">
+                    <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                        <img src="assets/LB_RAYANE.png" alt="Rayane" class="w-full h-full object-cover">
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Rayane</h4>
+                    </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                    "L’ensemble est vraiment incroyable, super confortable à porter, que ce soit pour le sport ou au quotidien.
+                    La coupe est top, les finitions sont propres, et le style fait clairement la différence. Je recommande fortement !"
+                    </p>
+                    <div class="flex space-x-1 text-yellow-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Slide 3 -->
+                  <div class="swiper-slide flex justify-center items-stretch w-full">
+                    <div class="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-accent transition-colors w-full h-full flex flex-col justify-between">
+                    <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 rounded-full overflow-hidden mr-4 bg-gray-800 flex items-center justify-center">
+                        <!-- Avatar anonyme SVG -->
+                        <svg class="w-10 h-10 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Selim</h4>
+                    </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                    "L'attention aux détails et la coupe parfaite des vêtements La Banlieue Pvris en font des pièces indispensables pour mes clients exigeants."
+                    </p>
+                    <div class="flex space-x-1 text-yellow-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Slide 4 -->
+                  <div class="swiper-slide flex justify-center items-stretch w-full">
+                    <div class="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-accent transition-colors w-full h-full flex flex-col justify-between">
+                    <div class="flex items-center mb-6">
+                    <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="assets/LB_GABY.png" alt="Gabriella" class="w-full h-full object-cover">
+                        </div>
+                    <div>
+                        <h4 class="text-xl font-bold">Gabriella</h4>
+                    </div>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                    "Très bonne qualité. 🤩"
+                    </p>
+                    <div class="flex space-x-1 text-yellow-400">
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    </div>
+                </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="swiper-slide flex justify-center items-stretch w-full">
+                    <div class="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-accent transition-colors w-full h-full flex flex-col justify-between">
+                        <div class="flex items-center mb-6">
+                       <div class="w-16 h-16 rounded-full overflow-hidden mr-4">
+                            <img src="assets/LB_KEVIN.png" alt="Kevin" class="w-full h-full object-cover">
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Kevin</h4>
+                        </div>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                        "Vraiment top je recommande !"
+                        </p>
+                        <div class="flex space-x-1 text-yellow-400">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="swiper-slide flex justify-center items-stretch w-full">
+                    <div class="bg-gray-900 rounded-2xl p-8 border border-gray-800 hover:border-accent transition-colors w-full h-full flex flex-col justify-between">
+                        <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden mr-4 bg-gray-800 flex items-center justify-center">
+                            <svg class="w-10 h-10 text-gray-500" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold">Greg</h4>
+                        </div>
+                        </div>
+                        <p class="text-gray-300 mb-6">
+                        "J'ai pris la veste LB blanche et grise, franchement INCROYABLE 😍🔥"
+                        </p>
+                        <div class="flex space-x-1 text-yellow-400">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination (points) -->
+            <div class="swiper-pagination mt-8"></div>
+            </div>
+        </div>
+        </section>
+
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-28 bg-black relative overflow-hidden">
+          <div class="absolute inset-0 -z-10">
+              <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1483982258113-b72862e6cff6')] bg-cover bg-center opacity-10"></div>
+              <div class="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+          </div>
+          
+          <div class="container mx-auto px-6">
+              <div class="max-w-4xl mx-auto">
+                  <div class="text-center mb-16">
+                      <h2 class="text-5xl md:text-7xl font-bold mb-6">CONTACTEZ-<span class="text-accent">NOUS</span></h2>
+                      <p class="text-xl text-gray-400">
+                          Une question ? Un projet ? Nous sommes à votre écoute.
+                      </p>
+                  </div>
+                  
+                 <form action="https://formsubmit.co/lbpvris@gmail.com" method="POST"  id="contact-form" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Champ invisible anti-spam -->
+                <input type="hidden" name="_captcha" value="false">
+
+                <div>
+                    <label for="name" class="block text-gray-400 mb-2">Nom complet</label>
+                    <input type="text" name="name" required class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3">
+                </div>
+                <div>
+                    <label for="email" class="block text-gray-400 mb-2">Email</label>
+                    <input type="email" name="email" required class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3">
+                </div>
+                <div class="md:col-span-2">
+                    <label for="subject" class="block text-gray-400 mb-2">Sujet</label>
+                    <input type="text" name="subject" required class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3">
+                </div>
+                <div class="md:col-span-2">
+                    <label for="message" class="block text-gray-400 mb-2">Message</label>
+                    <textarea name="message" rows="5" required class="w-full bg-gray-900 border border-gray-800 rounded-lg px-4 py-3"></textarea>
+                </div>
+                <div class="md:col-span-2 text-center">
+                    <button type="submit" class="bg-accent hover:bg-transparent border-2 border-accent text-white px-12 py-4 rounded-full font-bold text-lg">
+                    ENVOYER LE MESSAGE
+                    </button>
+                </div>
+                </form>
+                <div id="success-message" class="text-center mt-6 text-green-400 font-bold hidden">
+                ✅ Votre message a bien été envoyé !
+                </div>
+              </div>
+          </div>
+      </section>
+  </main>
+
+    <footer class="bg-black py-16 border-t border-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-center mb-6">
+                <div class="flex space-x-4">
+                    <!-- Instagram -->
+                    <a href="https://www.instagram.com/lbpvris/#" target="_blank" rel="noopener noreferrer" 
+                    class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-accent transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <!-- TikTok -->
+                    <a href="https://www.tiktok.com/@lb.pvris" target="_blank" rel="noopener noreferrer" 
+                    class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-accent transition-colors">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <!-- Telegram -->
+                    <a href="https://t.me/lbpvris" target="_blank" rel="noopener noreferrer" 
+                    class="w-10 h-10 rounded-full bg-gray-900 flex items-center justify-center hover:bg-accent transition-colors">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                </div>
+            </div>
+            <div class=" mt-16 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 La Banlieue Paris. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div 
+    id="product-modal"
+    class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden"
+    >
+    <div
+        id="modal-content"
+        class="bg-gray-900 rounded-2xl p-6 max-w-xl w-full transform scale-90 opacity-0 transition-all duration-300 relative"
+    >
+        <button 
+        id="modal-close" 
+        class="absolute top-4 right-4 text-white text-2xl hover:text-accent"
+        >
+        &times;
+        </button>
+        <img id="modal-image" src="" alt="Produit" class="w-full rounded-lg mb-4">
+        <h3 class="text-2xl font-bold mb-2 text-white" id="modal-title">Titre</h3>
+        <p class="text-gray-400" id="modal-description">Description du produit ici.</p>
+    </div>
+    </div>
+</body>
+
