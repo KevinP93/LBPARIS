@@ -19,14 +19,14 @@ declare const ScrollTrigger: any;
 export class AppComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
-  requestAnimationFrame(() => {
-    const loader = document.getElementById('loader');
-    if (loader) {
-      loader.style.opacity = '0';
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 1000);
-    }
+    requestAnimationFrame(() => {
+      const loader = document.getElementById('loader');
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 2500);
+      }
 
     this.initAnimations();
     this.setupMenu();
