@@ -83,7 +83,7 @@ Le footer présente uniquement les réseaux sociaux officiels, centrés pour un 
 
 Une fois le projet déployé, le lien du site sera ajouté ici :
 
-> ⭐ **Lien du site en ligne :** [https://votresite.com](https://votresite.com)
+> ⭐ **Lien du site en ligne :** [https://lbparis.vercel.app](https://lbparis.vercel.app/)
 
 ---
 
