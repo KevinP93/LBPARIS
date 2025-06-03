@@ -55,32 +55,66 @@ export class AppComponent implements AfterViewInit {
       });
     }, 200);
 
-    // Modal ouverture
+      // Modal ouverture
     document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const imageEl = card.querySelector('.product-image') as HTMLElement;
-        const computedStyle = window.getComputedStyle(imageEl);
-        const image = computedStyle.backgroundImage || '';
-        const title = card.querySelector('h3')?.textContent || '';
-        const desc = card.querySelector('p')?.textContent || '';
-        const modal = document.getElementById('product-modal')!;
-        const modalContent = document.getElementById('modal-content')!;
-        const modalImage = document.getElementById('modal-image') as HTMLImageElement;
-        const modalTitle = document.getElementById('modal-title')!;
-        const modalDesc = document.getElementById('modal-description')!;
-        const match = image.match(/url\(["']?(.*?)["']?\)/);
-        modalImage.src = match ? match[1] : '';
-        modalTitle.textContent = title;
-        modalDesc.textContent = desc;
-        modal.classList.remove('hidden');
+    card.addEventListener('click', () => {
+      const imageEl = card.querySelector('.product-image') as HTMLElement;
+      const computedStyle = window.getComputedStyle(imageEl);
+      const image = computedStyle.backgroundImage || '';
+      const title = card.querySelector('h3')?.textContent || '';
+      const desc = card.querySelector('p')?.textContent || '';
+      const modal = document.getElementById('product-modal')!;
+      const modalContent = document.getElementById('modal-content')!;
+      const modalImage = document.getElementById('modal-image') as HTMLImageElement;
+      const modalTitle = document.getElementById('modal-title')!;
+      const modalDesc = document.getElementById('modal-description')!;
+      const match = image.match(/url\(["']?(.*?)["']?\)/);
 
-        gsap.fromTo(
-          modalContent,
-          { scale: 0.9, opacity: 0 },
-          { scale: 1, opacity: 1, duration: 0.5, ease: 'power3.out' }
-        );
-      });
+      // Flèches
+      const prevBtn = document.getElementById('modal-prev')!;
+      const nextBtn = document.getElementById('modal-next')!;
+
+      // Spécial pour le short (et uniquement le short)
+      if (title.toLowerCase().includes('short')) {
+        const images = [
+          'assets/LB_SHORT_AVANT.png',
+          'assets/LB_SHORT_ARRIERE.png'
+        ];
+        let idx = 0;
+
+        modalImage.src = images[idx];
+        prevBtn.classList.remove('hidden');
+        nextBtn.classList.remove('hidden');
+
+        prevBtn.onclick = (e) => {
+          e.stopPropagation();
+          idx = (idx - 1 + images.length) % images.length;
+          modalImage.src = images[idx];
+        };
+        nextBtn.onclick = (e) => {
+          e.stopPropagation();
+          idx = (idx + 1) % images.length;
+          modalImage.src = images[idx];
+        };
+      } else {
+        // Pour les autres produits, cache les flèches
+        prevBtn.classList.add('hidden');
+        nextBtn.classList.add('hidden');
+        modalImage.src = match ? match[1] : '';
+      }
+
+      modalTitle.textContent = title;
+      modalDesc.textContent = desc;
+      modal.classList.remove('hidden');
+
+      gsap.fromTo(
+        modalContent,
+        { scale: 0.9, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.5, ease: 'power3.out' }
+      );
     });
+  });
+
 
     // Modal fermeture
     document.getElementById('modal-close')?.addEventListener('click', () => {
